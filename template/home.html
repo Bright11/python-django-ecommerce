@@ -11,7 +11,8 @@ Home
         {% for p in product_list  %} 
         <div class="col-md-4">
             <img src="{{ p.image.url }}" alt="{{ p.title }}" class="img-fluid" style="height:250px;"/>
-            <h3>{{ p.title }}</h3>
+            <h3><a href="{% url 'mystor:productdetails' p.slug %}">{{ p.title }}</a></h3>
+            
             <p>Price:<strike>$. {{p.mared_price}}</strike> ${{ p.salling_price }}</p>
         </div>
         {% endfor %}

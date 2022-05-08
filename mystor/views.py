@@ -23,15 +23,29 @@ class HomeView(TemplateView):
           context['allcategories']=Category.objects.all()
           return context
      
-     
+     #getting product and its categories
 class AllproductView(TemplateView):
      template_name='allproduct.html'
      
      def get_context_data(self, **kwargs):
           context =super().get_context_data(**kwargs)
-          context['allcategories']=Category.objects.all()
+          context['allcategories']=Category.objects.all().order_by('-id')
           return context
           
+#product details
+class ProductDetailsView(TemplateView):
+     template_name='productdetails.html'
+     
+     def get_context_data(self, **kwargs):
+          context= super().get_context_data(**kwargs)
+          slug= kwargs['slug']
+          #print(slug, '99999999999999999')
+          url_slug= self.kwargs['slug']
+          product= Product.objects.get(slug=url_slug)
+          product.view_count += 1 #view count
+          product.save() #view count save
+          context['product']=product
+          return context
     
 class AboutView(TemplateView):
     template_name='about.html'
