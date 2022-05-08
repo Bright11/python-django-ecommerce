@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title%}
+Home
+{% endblock%}
+{% block navbar %}
+{% include 'include/nav.html' %}
+{% endblock %}
+{% block content %}
+<div class="container">
+    {% for cart in allcategories  %} 
+    <hr>
+    <h3>{{ cart.title }}</h3>
+    <hr>
+    <div class="row text-center">
+        {% for p in cart.product_set.all  %} 
+        <div class="col-md-4">
+            <img src="{{ p.image.url }}" alt="{{ p.title }}" class="img-fluid" style="height:250px;"/>
+            <h3>{{ p.title }}</h3>
+            <p>Price:<strike>$. {{p.mared_price}}</strike> ${{ p.salling_price }}</p>
+        </div>
+        {% endfor %}
+        
+      </div>
+      {% endfor %}
+</div>
+{% endblock %}
+
