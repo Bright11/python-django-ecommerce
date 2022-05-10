@@ -14,13 +14,13 @@
         <div class="col-md-5">
             <h3>Product information</h3>
             <hr>
-    <h3>{{ product.title }} (Viewd {{ product.view_count }} times) </h3> 
+    <h3>{{ product.title }} (Viewed {{ product.view_count }} times) </h3> 
     <hr>
     <h3>Category: {{ product.category }}</h3> 
     <hr>
     <h5>Price: <strike>$:{{product.mared_price}}</strike> $: {{ product.salling_price }}</h5>
     <hr>
-    <a href="" class="btn btn-info">Add to Cart</a>
+    <a href="{% url 'mystor:addtocart' product.id %}" class="btn btn-info">Add to Cart</a>
     <hr>
     <p class="btn btn-info">Product warranty: {{ product.warranty }}
         <hr>

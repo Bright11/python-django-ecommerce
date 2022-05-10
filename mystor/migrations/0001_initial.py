@@ -72,6 +72,7 @@ class Migration(migrations.Migration):
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
+        
         migrations.CreateModel(
             name='CartProduct',
             fields=[
@@ -83,6 +84,7 @@ class Migration(migrations.Migration):
                 ('cart', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='mystor.cart')),
             ],
         ),
+        
         migrations.AddField(
             model_name='cart',
             name='customer',

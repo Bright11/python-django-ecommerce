@@ -17,6 +17,8 @@ Product categories
             <img src="{{ p.image.url }}" alt="{{ p.title }}" class="img-fluid" style="height:250px;"/>
             <h3><a href="{% url 'mystor:productdetails' p.slug %}">{{ p.title }}</a></h3>
             <p>Price:<strike>$: {{p.mared_price}}</strike> ${{ p.salling_price }}</p>
+            <a href="{% url 'mystor:addtocart' p.id %}" class="btn btn-info">Add to Cart</a>
+            <hr>
         </div>
         {% endfor %}
         
